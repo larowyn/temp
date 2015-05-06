@@ -3,6 +3,8 @@
 
 #include <sys/stat.h>
 #define CMDNAME_MAX 32
+#define CMD_NUMBER 2
+#define FOLLOW_LINK 0
 
 typedef void(*Command_function)(const char*, const struct stat*);
 

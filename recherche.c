@@ -16,7 +16,7 @@ int	main(int argc, char **argv) {
 
 
 
-    Command cmds[2];
+    Command cmds[CMD_NUMBER];
 
     strcpy(cmds[0].name, "yesterday_changes");
     strcpy(cmds[1].name, "dead_links");
@@ -24,7 +24,7 @@ int	main(int argc, char **argv) {
     cmds[0].fcn = &yesterday_changes;
     cmds[1].fcn = &dead_links;
     int i;
-    for (i = 0; i<(sizeof(cmds)/sizeof(Command)); i++){
+    for (i = 0; i<CMD_NUMBER; i++){
         if (strcmp(argv[1], cmds[i].name) == 0){
             run_cmd(path, cmds[i].fcn);
             return 0;
