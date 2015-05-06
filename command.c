@@ -11,7 +11,6 @@ int					run_cmd(const char* path, Command_function cmd){
 	file = readdir(dir);
 	while ((file = readdir(dir))) {
 		// stat and run cmd
-
 		// DEBUG
 		printf("%s %s", path, file->d_name);
 
