@@ -11,9 +11,11 @@ typedef struct {
     Command_function    fcn;
 } Command;
 
-void yesterday_changes(const char*, const struct stat*);
-void dead_links(const char*, const struct stat*);
-int run_cmd(const char*, Command_function);
+void yesterday_changes(const char* path, const struct stat* status_buffer);
+void dead_links(const char* path, const struct stat* status_buffer);
+int run_cmd(const char* path, Command_function cmd);
+void help(const Command commands[], size_t nb_cmd);
+void usage(const char* pgm);
 
 #endif // COMMAND_H_INCLUDED
 

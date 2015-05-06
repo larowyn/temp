@@ -7,8 +7,10 @@ int	main(int argc, char **argv) {
     if (argc < 2){
         // On n'a pas ni nom de commande ni répertoire source
         // Fin de programme
+        usage(argv[0]);
+        return 1;
     }
-    else if(argc == 2){
+    else if(argc >2){
         // On n'a pas de nom de répertoire
         // On part du répertoire courant
         path = argv[2];
@@ -23,6 +25,12 @@ int	main(int argc, char **argv) {
 
     cmds[0].fcn = &yesterday_changes;
     cmds[1].fcn = &dead_links;
+
+    if (strcmp(argv[1], "-h") == 0){
+        help(cmds, sizeof(cmds)/sizeof(Command));
+        return 0;
+    }
+
     int i;
     for (i = 0; i<(sizeof(cmds)/sizeof(Command)); i++){
         if (strcmp(argv[1], cmds[i].name) == 0){
@@ -31,6 +39,7 @@ int	main(int argc, char **argv) {
         }
     }
     // pas de nom valide pour la commande
+    usage(argv[0]);
 
 	return (1);
 }
