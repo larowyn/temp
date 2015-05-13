@@ -1,8 +1,8 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -g
 NAME = recherche
 DIR_OBJ = objects
-SRC = recherche.c dead_links.c yesterday_changes.c command.c
+SRC = recherche.c dead_links.c yesterday_changes.c command.c help.c
 OBJ = $(patsubst %.c, $(DIR_OBJ)/%.o, $(SRC))
 
 all: $(NAME)
